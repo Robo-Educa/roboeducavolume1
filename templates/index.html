@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robô Educa - Volume 1</title>
+
+    <style>
+        body {
+            text-align: center;
+            align-items: center;
+            font-family: "Audiowide", sans-serif;
+            color: black;
+            background-image: linear-gradient(to right, #1c3cc9 0%, #338cd4 50%, #e0f0f0 100%);
+            padding: auto;
+        }
+
+        i.fa {
+            display: inline-block;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 0 0 4px black;
+            padding: 0.2em 0.2em;
+            margin-left: 5px;
+            margin-right: 5px;
+            align-items: center;
+        }
+
+        button {
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 0 0 1px black;
+            padding: 0.5em 0.5em;
+            font-size: large;
+        }
+
+        #DeviceDeniedHeader {
+            text-align: center;
+            align-items: center;
+            height: auto;
+            background-color: #1fc8db;
+            background-image: linear-gradient(140deg, #662d91 0%, #BC70A4 50%, #BFD641 75%);
+            opacity: 0.95;
+            padding: 20px
+        }
+
+        #DeviceDeniedBrowsers {
+            text-align: left;
+            align-items: left;
+        }
+
+        #divAuxComands {
+            text-align: right;
+            align-items: right;
+            width: auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto\9;
+            /* ie8 */
+        }
+
+        #divSpinner {
+            text-align: center;
+            align-items: center;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+
+        label {
+            float: left;
+            width: 10%;
+            line-height: 1.5;
+        }
+
+        .rate-value,
+        .pitch-value {
+            float: right;
+            width: 5%;
+            line-height: 1.5;
+        }
+
+        #rate,
+        #pitch {
+            float: right;
+            width: 75%;
+        }
+
+        li {
+            text-align: left;
+            align-items: left;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide&effect=shadow-multiple">
+
+    <script type="text/javascript" src="/static/js/mediaDevices.js"></script>    
+    <script type="text/javascript" src="/static/js/talk.js"></script>    
+
+</head>
+
+<body>
+
+    <div id="divMenu">
+        <h1 class="font-effect-shadow-multiple">Robô Educa - Volume 1</h1>
+        <button type="button" onclick="getPermissions();"><i class="fa fa-4x fa-sign-in"></i></button>&nbsp;&nbsp;&nbsp;
+        <h1 class="font-effect-shadow-multiple">Aprenda a programar construindo seu próprio robô</h1>
+    </div>
+    
+    <div id="divLip" style="display: none;"></div>
+
+    <script type="text/javascript">
+
+        var bot_message;
+
+        async function getPermissions() {
+            let micPermission = await devices_getStatusPermission('microphone');
+            switch (micPermission) {
+                case 'granted':
+                    let speechPermission = await devices_getStatusSpeechRecognition();
+                    if (speechPermission == "granted") {
+                        window.location.href = "interaction";  
+                    } 
+                    else {
+                        window.location.href = "deviceError";
+                    }                    
+                    break;
+                case 'prompt':
+                    window.location.href = "devicePrompt";   
+                    break;
+                case 'denied':
+                    window.location.href = "deviceDenied";   
+                    break;
+                case 'notFound':
+                    window.location.href = "deviceNotFound";   
+                    break;                
+            }            
+        }        
+        
+    </script>
+
+</body>
+
+</html>

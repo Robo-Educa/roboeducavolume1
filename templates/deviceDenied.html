@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso negado</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <style>
+        i.fa {
+            display: inline-block;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 0 0 4px black;
+            padding: 0.2em 0.2em;
+            margin-left: 5px;
+            margin-right: 5px;
+            align-items: center;
+        }
+
+        body {
+            text-align: center;
+            align-items: center;
+            font-family: "Audiowide", sans-serif;
+            color: black;
+            background-image: linear-gradient(to right, #1c3cc9 0%, #338cd4 50%, #e0f0f0 100%);
+            padding: auto;
+        }
+
+        button {
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 0 0 1px black;
+            padding: 0.5em 0.5em;
+            font-size: large;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="DeviceDeniedHeader">
+        <i class="fa fa-4x fa-microphone-slash"></i>
+        <h2>O nosso robô funcionará melhor utilizando o Microfone.</h2>
+        <h2>Porém parece que nos foi bloqueado o acesso a estes recursos.</h2>
+        <h3>Mas se deseja desbloquear, siga o passo a passo descrito abaixo. Depois retorne ao nosso site.</h3>
+    </div>
+    <div id="DeviceDeniedBrowsers">
+        <h3>No Google Chrome:</h3>
+        <ul id="lista">
+            <li>No canto superior direito do navegador, clique Configurações.</li>
+            <li>Privacidade e segurança</li>
+            <li>Configurações do site</li>            
+            <li>Microfone</li>
+            <li>Exclua o nosso portal da lista de bloqueados.</li>
+        </ul>
+    </div>
+    
+    <a href="{{ url_for('home') }}"><button type="button" >Voltar <i class="fa fa-undo"></i></button></a> 
+</body>
+
+</html>

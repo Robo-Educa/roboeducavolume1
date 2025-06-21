@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robô Educa</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            font-family: "Audiowide", sans-serif;
+            color: black;
+            background-image: linear-gradient(to right, #1c3cc9 0%, #338cd4 50%, #e0f0f0 100%);
+        }
+
+        i.fa {
+            display: inline-block;
+            padding: 0.2em 0.2em;
+            margin-left: 5px;
+            margin-right: 5px;
+            align-items: center;
+        }
+
+        button {
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 0 0 1px black;
+            padding: 0.5em 0.5em;
+            font-size: large;
+        }
+
+
+        #divClose {
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-align: right;
+            padding: 10px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            width: auto\9;
+            /* ie8 */
+        }
+
+        .clearfix {
+            clear: both;
+        }
+    </style>
+
+    <style></style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide&effect=shadow-multiple" />
+    <link rel="stylesheet" type="text/css" href="/static/css/spinners.css">
+
+    <script type="text/javascript" src="../static/js/talk.js"></script>
+    <script type="text/javascript" src="../static/js/display.js"></script>
+
+</head>
+
+<body>
+
+    <div id="divClose" style="display: none;">
+        <i onclick="logout()" class="fa fa-2x fa-window-close" style="color: red;"></i>
+    </div>
+
+    <div id="divStart">
+        <h1 class="font-effect-shadow-multiple">Pressione o botão abaixo</h1>
+        <button type="button" onclick="start();"><i class="fa fa-4x fa-play"></i></button>
+    </div>
+
+    <div id="divSpinnerRipple" class="lds-ripple" style="display: none;">
+        <div></div>
+        <div></div>
+    </div>
+
+    <div id="divSpinnerCircle" class="lds-circle" style="display: none;">
+        <div></div>
+    </div>
+
+    <div id="divSpinnerWaves" class="lds-facebook" style="display: none;">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div id="divSpinnerHourglass" class="lds-hourglass" style="display: none;">
+    </div>
+
+    <div id="divSpinnerHeart" class="lds-heart" style="display: none;">
+        <div></div>
+    </div>
+
+    <div id="divPauseStart" style="display: none;">
+        <button id="btPauseStart" type="button" onclick="pauseStart();"><i class="fa fa-4x fa-play"></i></button>
+    </div>
+
+    <div id="divInteractionImage">
+        <img id="interactionImage"><br>
+    </div>
+
+    <div id="divMessage" style="display: none;"></div>
+
+    <script type="text/javascript">
+
+        function start() {
+            document.getElementById("divStart").style.display = "none";
+            document.getElementById("divClose").style.display = "block";
+            openFullscreen();            
+            talk("oi");                                 // Inicia conversa com Bot com um "oi"                        
+        }        
+
+        function pauseStart() {
+            talk("oi"); // reinicia conversa
+        }
+
+        function openFullscreen() {
+           var elem = document.documentElement;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) { /* Safari */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE11 */
+                elem.msRequestFullscreen();
+            }
+        }        
+
+    </script>
+
+</body>
+
+</html>

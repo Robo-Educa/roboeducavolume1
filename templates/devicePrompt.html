@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <title>Permissões necessárias</title>
+    
+    <style>
+        i.fa {
+            display: inline-block;
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 0 0 4px black;
+            padding: 0.2em 0.2em;
+            margin-left: 5px;
+            margin-right: 5px;
+            align-items: center;
+        }
+
+        body {
+            text-align: center;
+            align-items: center;
+            font-family: "Audiowide", sans-serif;
+            color: black;
+            background-image: linear-gradient(to right, #1c3cc9 0%, #338cd4 50%, #e0f0f0 100%);
+            padding: auto;
+        }
+
+        button {
+            border-radius: 15px 15px 15px 15px;
+            box-shadow: 0 0 1px black;
+            padding: 0.5em 0.5em;
+            font-size: large;
+        }
+    </style>
+        
+    <script type="text/javascript" src="/static/js/mediaDevices.js"></script>    
+
+</head>
+
+<body>
+    <h2>Para o nosso robô funcionar vamos precisar usar o Microfone</h2>    
+    <h2>Clique no botão "AVANÇAR" e em "PERMITIR" quando for solicitado.</h2><br>
+
+    <a href="{{ url_for('home') }}"><button type="button">Cancelar <i class="fa fa-ban"></i></button> </a>    
+    <button type="button" onclick="getMicPermission();">Avançar <i class="fa fa-check"></i></button>
+</body>
+
+<script type="text/javascript" >
+
+    // solicita permissão do usuário para uso de microfone
+    async function getMicPermission() {
+        let micPermission = await devices_micPrompt();  
+        switch (micPermission) {
+            case 'granted':
+                window.location.href = "/";         
+                break;
+            case 'denied':
+                window.location.href = "deviceDenied";
+                break;
+            case 'notFound':
+                window.location.href = "deviceNotFound";
+                break;
+            case 'error':
+                window.location.href = "deviceError";
+                break;                
+        }          
+    }
+    
+</script>
+
+</html>
