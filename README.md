@@ -4,14 +4,9 @@
 
 <hr>
 
-[English Version](/README.md)
-
-![Portuguese](https://img.shields.io/badge/Language-English-blue)
-<hr>
-
 ## 🤓 Aprenda a programar construindo seu próprio robô.
 
-Robô Educa  é uma plataforma inovadora que ensina programação para crianças de 6 a 14 anos, promovendo a inclusão e a sustentabilidade 🤝♻️. A jornada começa com uma história inspiradora de dois irmãos, Suzy e Otávio, que desejam construir um robô 🤖 e contam com a ajuda de seu professor Carlos Sales 👨‍🏫 que os incentiva a montar seu próprio robô humanoide utilizando materiais reciclados, programação e nuvem ♻️💻☁️.
+Robô Educa  é uma plataforma inovadora que ensina programação para crianças de 6 a 14 anos, promovendo a inclusão e a sustentabilidade 🤝♻️. A jornada começa com uma história inspiradora de dois irmãos, Suzy e Otávio, que desejam construir um robô 🤖 e contam com a ajuda de seu professor Carlos 👨‍🏫 que os incentiva a montar seu próprio robô humanoide utilizando materiais reciclados, programação e nuvem ♻️💻☁️.
 
 É neste contexto que surge o Web Aplicativo Robô Educa que acessível a partir de qualquer smartphone 📱 se torna o "cérebro" do robô 🧠 interagindo com a criança através de  mensagens de áudio 🗣️ tornando-o acessível inclusive para pessoas com deficiência visual. A montagem do robô e a interação com o aplicativo estimulam a coordenação motora 🖐️ e a criatividade ✨ ensinando a criança conceitos tecnológicos de forma lúdica e inclusiva.
 
@@ -74,7 +69,7 @@ A aplicação é desenvolvida utilizando ferramentas open-source. O backend é d
 
 ![Pyton](https://img.shields.io/badge/python-v3-green)
 
-### Backend - `routes.py`
+### Backend - `main.py`
 O arquivo `main.py` gerencia todas as rotas disponíveis na aplicação. É aqui que diferentes endpoints são definidos para lidar com as interações dos usuários e o processamento de dados.
 
 ```python

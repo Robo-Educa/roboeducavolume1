@@ -1,9 +1,5 @@
-# Importa bibliotecas
-from flask import Flask, render_template, request, redirect, url_for, make_response, jsonify
+from flask import Flask, render_template, request
 import talkService as talkService
-import os
-from dotenv import load_dotenv
-load_dotenv()  
 
 app = Flask(__name__)
 
@@ -52,4 +48,3 @@ def talk():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
